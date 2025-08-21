@@ -5,8 +5,6 @@ This repository contains the code of the course [Angular SSR In Depth (formerly 
 
 This course repository is updated to Angular v20.
 
-![Angular SSR In Depth (formerly Angular Universal)](https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg)
-
 # Installation pre-requisites
 
 Please use  Node 22 long-term support (LTS) version.
@@ -41,7 +39,7 @@ This should take a couple of minutes. If there are issues, please post the compl
 
 To run the frontend part of our code, we will use the Angular CLI:
 
-    npm start 
+    npm dev:start 
 
 The application is available at port 4200: [http://localhost:4200](http://localhost:4200)
 
@@ -51,4 +49,8 @@ To run the application in development mode but still have it server side rendere
 
     npm run dev:ssr 
 
-The live universal application is available at port 4200: [http://localhost:4200](http://localhost:4200)
+The live universal application is available at port 4000: [http://localhost:4000](http://localhost:4200)
+
+
+# Production Url
+https://angular-ssr-in-depth.onrender.com

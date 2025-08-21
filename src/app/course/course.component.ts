@@ -1,12 +1,9 @@
-import { AfterViewInit,Component,ElementRef,OnInit,ViewChild } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource,MatTableModule } from '@angular/material/table';
 import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
-import { debounceTime,distinctUntilChanged,startWith,tap,delay } from 'rxjs/operators';
-import { merge,fromEvent } from 'rxjs';
+
 import { Lesson } from '../model/lesson';
 import { Meta,Title } from '@angular/platform-browser';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -43,14 +40,17 @@ export class CourseComponent implements OnInit {
     this.course = this.route.snapshot.data["course"];
 
     this.title.setTitle(this.course.description);
-    this.meta.updateTag({ name: 'description',content: this.course.longDescription });
+    this.meta.updateTag({ name: 'description', content: this.course.longDescription });
+    this.meta.updateTag({ name: 'image', content: this.course.iconUrl });
 
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({ name: 'twitter:site', content: '@andhres14' });
     this.meta.updateTag({ name: 'twitter:title', content: this.course.description });
-    this.meta.updateTag({ name: 'twitter:description', content: this.course.description });
-    this.meta.updateTag({ name: 'twitter:text:description', content: this.course.description });
-    this.meta.updateTag({ name: 'twitter:image', content: 'https://avatars.githubusercontent.com/u/139426?s=48&v=4' });
+    this.meta.updateTag({ name: 'twitter:description', content: this.course.longDescription });
+    this.meta.updateTag({ name: 'twitter:image', content: this.course.iconUrl });
+
+    this.meta.updateTag({ name: 'og:description', content: this.course.longDescription });
+    this.meta.updateTag({ name: 'og:image', content: this.course.iconUrl });
 
 
 
